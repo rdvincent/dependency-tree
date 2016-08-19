@@ -16,6 +16,7 @@ function BundledEdgeRouter(tree, layout) {
   this.tree = tree;
   this.layout = layout;
   this.splines = null;
+  this.colors = null;
 }
 
 /**
@@ -50,9 +51,11 @@ BundledEdgeRouter.prototype._spline = function(i, j) {
  */
 BundledEdgeRouter.prototype.init = function() {
   this.splines = [];
+  this.colors = [];
   for (var i = 0; i < this.tree.nodes.length; i++) {
     for (var j = 0; j < this.tree.nodes[i].outgoing.length; j++) {
       this.splines.add(this._spline(i, this.tree.nodes[i].outgoing[j].index));
+      this.colors.push(this.tree.nodes[i].colors[j]);
     }
   }
 };

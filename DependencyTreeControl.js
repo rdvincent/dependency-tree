@@ -21,7 +21,7 @@ function DependencyTreeControl(canvas, legend, label) {
   for (var i = 0; i < data.length; i++) {
     var node = tree.get(data[i].name);
     for (var j = 0; j < data[i].imports.length; j++) {
-      node.addEdge(tree.get(data[i].imports[j]));
+      node.addEdge(tree.get(data[i].imports[j]), data[i].colors[j]);
     }
   }
 
@@ -75,10 +75,11 @@ function DependencyTreeControl(canvas, legend, label) {
         }
       }
       for (var i = 0, n = gradientSteps; i < n; i++) {
-        var c = gradient.color((i + .5) / n);
-        c.a = gradientAlpha;
-        g.strokeStyle = c.toString();
+        //var c = gradient.color((i + .5) / n);
+        //c.a = gradientAlpha;
         for (var j = 0; j < this.splines.length; j++) {
+          //var c = edges.colors[j];
+          g.strokeStyle = edges.colors[j];
           if (this.splines[j]._active) {
             gradientPaths[j][i].stroke(g);
           }

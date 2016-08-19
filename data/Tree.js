@@ -18,6 +18,7 @@ Tree._Node = function(tree, parent) {
   this.outgoing = [];
   this.incoming = [];
   this.children = [];
+  this.colors = [];
   this.tree = tree;
   this.index = tree.nodes.length;
   this.parent = parent;
@@ -64,9 +65,10 @@ Tree._Node.prototype.clearChildren = function() {
  *
  * @param node the end node of the new edge.
  */
-Tree._Node.prototype.addEdge = function(node) {
+Tree._Node.prototype.addEdge = function(node, color) {
   node.incoming.push(this);
   this.outgoing.push(node);
+  this.colors.push(color);
 };
 
 /**

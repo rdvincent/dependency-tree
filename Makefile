@@ -25,7 +25,7 @@ RSRC_FILES = \
 	dependency-tree.js
 
 dependency-tree.js: $(JS_FILES) Makefile
-	cat $(JS_FILES) | java -jar lib/yuicompressor-2.4.2.jar --type js > $@
+	cat $(JS_FILES) > $@
 
 dependency-tree.tar.gz: $(JS_FILES) $(RSRC_FILES)
 	tar czvf $@ $^
