@@ -6,7 +6,7 @@
  * @param legend the canvas element in which to render the legend.
  * @param label the div element in which to render the active label.
  */
-function DependencyTreeControl(canvas, legend, label) {
+function DependencyTreeControl(data, canvas, legend, label) {
   var g = canvas.getContext("2d");
 
   /* Create a back-buffer for rotating. */
@@ -53,7 +53,7 @@ function DependencyTreeControl(canvas, legend, label) {
   edges.init();
 
   /* Define a custom draw method for the edges using a gradient. */
-  var colors = DependencyTreeControl._light;
+  var colors = DependencyTreeControl._dark;
   var gradient = new Gradient(colors.edgeStart, colors.edgeEnd);
   var gradientAlpha = 1;
   var gradientSteps = 8;
